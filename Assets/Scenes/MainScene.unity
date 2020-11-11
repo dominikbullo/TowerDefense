@@ -216,7 +216,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 7132422095810103464, guid: 4bcb940c53f92f14f87d0b03fbfb4665, type: 3}
   spawnPoint: {fileID: 1695554321}
-  timeBetweenWaves: 5
+  waveCountdownText: {fileID: 1509658963}
+  timeBetweenWaves: 5.5
 --- !u!4 &4219008
 Transform:
   m_ObjectHideFlags: 0
@@ -9790,7 +9791,7 @@ GameObject:
   - component: {fileID: 1509658964}
   - component: {fileID: 1509658963}
   m_Layer: 5
-  m_Name: Text
+  m_Name: WaveSpawnerCountdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
