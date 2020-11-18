@@ -11,8 +11,9 @@ public class WaveSpawner : MonoBehaviour
 
     public Text waveCountdownText;
 
+    // TODO: change on real game
     public float timeBetweenWaves = 5.5f;
-    private float countdown = 2.5f;
+    private float countdown = 0f;
 
     private int waveIndex = 0;
     // Update is called once per frame
