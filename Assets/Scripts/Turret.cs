@@ -79,9 +79,12 @@ public class Turret : MonoBehaviour
 
 	void Shoot ()
 	{
-		Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-	}
+		GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+		Bullet bullet = bulletGO.GetComponent<Bullet>();
 
+		if (bullet != null)
+			bullet.Seek(target);
+	}
     // Showing range (Unity function)
     void OnDrawGizmosSelected()
     {
