@@ -11,7 +11,7 @@ public class Turret : MonoBehaviour
     public float range = 15f;
 
     public float fireRate = 1f;
-	private float fireCountdown = 2.5f;
+	private float fireCountdown = .5f;
 
 
     [Header("Unity Fields")] // for better organization, showed in unity 
