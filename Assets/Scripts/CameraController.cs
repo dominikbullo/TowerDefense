@@ -29,6 +29,7 @@ public class CameraController : MonoBehaviour
         if (Input.GetKey("mouse 2"))
         {
             //(Input.mousePosition.x - Screen.width * 0.5)/(Screen.width * 0.5)
+            // TODO: Pan as in blender or unity for example
 
             transform.Translate(Vector3.right * Time.deltaTime * panSpeed * (Input.mousePosition.x - Screen.width * 0.5f) / (Screen.width * 0.5f), Space.World);
             transform.Translate(Vector3.forward * Time.deltaTime * panSpeed * (Input.mousePosition.y - Screen.height * 0.5f) / (Screen.height * 0.5f), Space.World);
