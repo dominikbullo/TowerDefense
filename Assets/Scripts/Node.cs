@@ -5,7 +5,9 @@ using UnityEngine.EventSystems;
 
 public class Node : MonoBehaviour
 {
-    public Color hoverColor;
+	public Color hoverColor;
+	public Color notEnoughMoneyColor;
+
     public Vector3 positionOffset;
 	
     [Header("Optional")]
@@ -58,7 +60,16 @@ public class Node : MonoBehaviour
 		if (!buildManager.CanBuild)
 			return;
 
-        rend.material.color = hoverColor;
+        if (buildManager.HasMoney)
+		{
+			rend.material.color = hoverColor;
+		} else
+		{
+			rend.material.color = notEnoughMoneyColor;
+		}
+
+        // TODO: Draw gizmo 
+        // turret.drawGizmo();
     }
 
     void OnMouseExit()

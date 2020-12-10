@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 4219008}
   - component: {fileID: 4219007}
   - component: {fileID: 4219009}
+  - component: {fileID: 4219010}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -231,7 +232,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4219009
 MonoBehaviour:
@@ -247,6 +248,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standardTurretPrefab: {fileID: 552873246133907250, guid: b7c15139bf3908048944238acdfbbb85, type: 3}
   missileLauncherPrefab: {fileID: 6726468192099373458, guid: 7a593f4d28de6c948aed39cd8ef01308, type: 3}
+--- !u!114 &4219010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4219006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b87f1328b2e8142b30ff2d54c0ab43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startMoney: 400
 --- !u!1001 &8625696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1301,7 +1315,7 @@ RectTransform:
   - {fileID: 1509658962}
   - {fileID: 673779172}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2715,7 +2729,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 673779176}
         m_TargetAssemblyTypeName: Shop, Assembly-CSharp
-        m_MethodName: PurchaseMissileTurret
+        m_MethodName: SelectMissileLauncher
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3338,8 +3352,9 @@ Transform:
   - {fileID: 1027167490}
   - {fileID: 1561112172}
   - {fileID: 399811502}
+  - {fileID: 705507995}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &496715281
 PrefabInstance:
@@ -3684,7 +3699,7 @@ Transform:
   - {fileID: 1548238984}
   - {fileID: 1247899140}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &515856044
 PrefabInstance:
@@ -4907,7 +4922,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 673779176}
         m_TargetAssemblyTypeName: Shop, Assembly-CSharp
-        m_MethodName: PurchaseStandardTurret
+        m_MethodName: SelectStandardTurret
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5221,11 +5236,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: -10.23, y: 19.63, z: 17.72}
+  m_LocalPosition: {x: -46.415913, y: 35.111877, z: 59.280586}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 464436482}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &711921249
 PrefabInstance:
@@ -9120,7 +9135,7 @@ Transform:
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1316056197
 PrefabInstance:
@@ -9778,7 +9793,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1403479835
 PrefabInstance:
@@ -12101,7 +12116,7 @@ Transform:
   - {fileID: 61432538}
   - {fileID: 1582979990}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1654456253
 MonoBehaviour:
@@ -12459,7 +12474,7 @@ Transform:
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1697345066
 PrefabInstance:
@@ -15232,7 +15247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6202274183275891496, guid: 7a593f4d28de6c948aed39cd8ef01308, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6202274183275891496, guid: 7a593f4d28de6c948aed39cd8ef01308, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -15293,7 +15308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1221666505481535726, guid: b7c15139bf3908048944238acdfbbb85, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1221666505481535726, guid: b7c15139bf3908048944238acdfbbb85, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
