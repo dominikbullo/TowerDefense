@@ -60,6 +60,9 @@ public class Node : MonoBehaviour
 		if (!buildManager.CanBuild)
 			return;
 
+        if (buildManager.CanBuild)
+		    buildManager.drawRadius(this);
+
         if (buildManager.HasMoney)
 		{
 			rend.material.color = hoverColor;
@@ -67,9 +70,6 @@ public class Node : MonoBehaviour
 		{
 			rend.material.color = notEnoughMoneyColor;
 		}
-
-        // TODO: Draw gizmo 
-        // turret.drawGizmo();
     }
 
     void OnMouseExit()

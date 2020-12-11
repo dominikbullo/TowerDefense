@@ -5,6 +5,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float speed = 10;
+    public int health = 100;
+    public int value = 50;
+
     private Transform target;
     private int wavepointIndex = 0;
 
@@ -30,11 +33,34 @@ public class Enemy : MonoBehaviour
     {
         if (wavepointIndex >= Waypoints.points.Length - 1)
         {
-            Destroy(gameObject);
+            EndPath();
             return; //fixed error because Destroy delay
         }
         wavepointIndex++;
         target = Waypoints.points[wavepointIndex];
+    }
+
+
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        PlayerStats.Money += value;
+        Destroy(gameObject);
+    }
+
+    void EndPath()
+    {
+        PlayerStats.Lives--;
+        Destroy(gameObject);
     }
 
 }

@@ -26,7 +26,8 @@ public class WaveSpawner : MonoBehaviour
         }
 
         countdown -= Time.deltaTime;
-        waveCountdownText.text = Mathf.Round(countdown).ToString();
+        countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity); //not will be less tha 0
+        waveCountdownText.text = string.Format("{0:00.00}", countdown);
     }
     /* IEnumerator because pausing code
        Found in using System.Collections */
