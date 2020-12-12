@@ -4,26 +4,33 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-	public TurretHandler standardTurret;
-	public TurretHandler missileLauncher;
+    public TurretHandler standardTurret;
+    public TurretHandler missileLauncher;
+    public TurretHandler laserBeamer;
 
     BuildManager buildManager;
 
-	void Start ()
-	{
-		buildManager = BuildManager.instance;
-	}
+    void Start()
+    {
+        buildManager = BuildManager.instance;
+    }
 
-	public void SelectStandardTurret ()
-	{
-		Debug.Log("Standard Turret Selected");
-		buildManager.SelectTurretToBuild(standardTurret);
-	}
+    public void SelectStandardTurret()
+    {
+        Debug.Log("Standard Turret Selected");
+        buildManager.SelectTurretToBuild(standardTurret);
+    }
 
-	public void SelectMissileLauncher()
-	{
-		Debug.Log("Missile Launcher Selected");
-		buildManager.SelectTurretToBuild(missileLauncher);
-	}
+    public void SelectMissileLauncher()
+    {
+        Debug.Log("Missile Launcher Selected");
+        buildManager.SelectTurretToBuild(missileLauncher);
+    }
+
+    public void SelectLaserBeamer()
+    {
+        Debug.Log("Laser Beamer Selected");
+        buildManager.SelectTurretToBuild(laserBeamer);
+    }
 
 }

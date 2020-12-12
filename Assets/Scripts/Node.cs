@@ -5,11 +5,11 @@ using UnityEngine.EventSystems;
 
 public class Node : MonoBehaviour
 {
-	public Color hoverColor;
-	public Color notEnoughMoneyColor;
+    public Color hoverColor;
+    public Color notEnoughMoneyColor;
 
     public Vector3 positionOffset;
-	
+
     [Header("Optional")]
     public GameObject turret;
 
@@ -26,55 +26,57 @@ public class Node : MonoBehaviour
         buildManager = BuildManager.instance;
     }
 
-    public Vector3 GetBuildPosition ()
-	{
-		return transform.position + positionOffset;
-	}
+    public Vector3 GetBuildPosition()
+    {
+        return transform.position + positionOffset;
+    }
 
     void OnMouseDown()
     {
         // block panel click
         if (EventSystem.current.IsPointerOverGameObject())
-        	return;
-        
-         // do not select if null
-		if (!buildManager.CanBuild)
-			return;
+            return;
+
+        // do not select if null
+        if (!buildManager.CanBuild)
+            return;
 
         if (turret != null)
         {
             Debug.Log("Can't build there!");
             return;
         }
-        
+
         buildManager.BuildTurretOn(this);
     }
 
     void OnMouseEnter()
     {
+        Debug.Log("Mouse enter");
         // block panel click
         if (EventSystem.current.IsPointerOverGameObject())
-        	return;
+            return;
 
         // disable highlight if null 
-		if (!buildManager.CanBuild)
-			return;
+        if (!buildManager.CanBuild)
+            return;
 
-        if (buildManager.CanBuild)
-		    buildManager.drawRadius(this);
+        // Debug.Log("Can build && drawRadius");
+        // buildManager.drawRadius(this);
 
         if (buildManager.HasMoney)
-		{
-			rend.material.color = hoverColor;
-		} else
-		{
-			rend.material.color = notEnoughMoneyColor;
-		}
+        {
+            rend.material.color = hoverColor;
+        }
+        else
+        {
+            rend.material.color = notEnoughMoneyColor;
+        }
     }
 
     void OnMouseExit()
     {
         rend.material.color = startColor;
     }
-    
+
 }
