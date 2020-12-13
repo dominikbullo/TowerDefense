@@ -52,7 +52,7 @@ public class Node : MonoBehaviour
 
     void OnMouseEnter()
     {
-        Debug.Log("Mouse enter");
+        // Debug.Log("Mouse enter");
         // block panel click
         if (EventSystem.current.IsPointerOverGameObject())
             return;

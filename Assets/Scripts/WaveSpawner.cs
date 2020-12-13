@@ -34,6 +34,8 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpawnWave()
     {
         waveIndex++;
+        // TODO maybe after wave is over
+        PlayerStats.Rounds++;
 
         for (int i = 0; i < waveIndex; i++)
         {
