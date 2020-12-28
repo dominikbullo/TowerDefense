@@ -37,15 +37,16 @@ public class Node : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
+        if (turret != null)
+        {
+            buildManager.SelectNode(this);
+            return;
+        }
+
         // do not select if null
         if (!buildManager.CanBuild)
             return;
 
-        if (turret != null)
-        {
-            Debug.Log("Can't build there!");
-            return;
-        }
 
         buildManager.BuildTurretOn(this);
     }
@@ -62,7 +63,7 @@ public class Node : MonoBehaviour
             return;
 
         // Debug.Log("Can build && drawRadius");
-        // buildManager.drawRadius(this);
+        // draw radius here 
 
         if (buildManager.HasMoney)
         {
