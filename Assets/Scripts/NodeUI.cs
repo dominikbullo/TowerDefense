@@ -19,4 +19,10 @@ public class NodeUI : MonoBehaviour
     {
         ui.SetActive(false);
     }
+
+    public void Upgrade()
+    {
+        target.UpgradeTurret();
+        BuildManager.instance.DeselectNode();
+    }
 }
