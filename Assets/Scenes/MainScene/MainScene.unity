@@ -5537,20 +5537,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standardTurret:
-    prefab: {fileID: 0}
-    cost: 0
+    prefab: {fileID: 552873246133907250, guid: b7c15139bf3908048944238acdfbbb85, type: 3}
+    cost: 100
     upgradedPrefab: {fileID: 0}
-    upgradeCost: 0
+    upgradeCost: 50
   missileLauncher:
-    prefab: {fileID: 0}
-    cost: 0
+    prefab: {fileID: 6726468192099373458, guid: 7a593f4d28de6c948aed39cd8ef01308, type: 3}
+    cost: 200
     upgradedPrefab: {fileID: 0}
-    upgradeCost: 0
+    upgradeCost: 150
   laserBeamer:
-    prefab: {fileID: 0}
-    cost: 0
+    prefab: {fileID: 4724569380542202138, guid: b4a27d14e79852847ae027b3624de1c8, type: 3}
+    cost: 300
     upgradedPrefab: {fileID: 0}
-    upgradeCost: 0
+    upgradeCost: 200
 --- !u!1 &679863462
 GameObject:
   m_ObjectHideFlags: 0
