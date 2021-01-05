@@ -73,7 +73,7 @@ public class Node : MonoBehaviour
     }
     void DrawTurretRadius(TurretBlueprint blueprint)
     {
-        Debug.Log("Draw radius", blueprint.prefab);
+        // Debug.Log("Draw radius", blueprint.prefab);
     }
 
     void BuildTurret(TurretBlueprint blueprint)
@@ -91,7 +91,7 @@ public class Node : MonoBehaviour
 
         turretBlueprint = blueprint;
 
-        Debug.Log("Turret build!");
+        // Debug.Log("Turret build!");
     }
 
     public void UpgradeTurret()

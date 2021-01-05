@@ -7,6 +7,7 @@ using UnityEngine.UI; // bacuse text
 public class WaveSpawner : MonoBehaviour
 {
     public static int EnemiesAlive = 0;
+    public Wave[] waves;
     public Transform enemyPrefab;
     public Transform spawnPoint;
 
@@ -44,20 +45,26 @@ public class WaveSpawner : MonoBehaviour
        Found in using System.Collections */
     IEnumerator SpawnWave()
     {
-        waveIndex++;
-        // TODO maybe after wave is over
         PlayerStats.Rounds++;
-
-        for (int i = 0; i < waveIndex; i++)
+        Wave wave = waves[waveIndex];
+        for (int i = 0; i < wave.count; i++)
         {
-            SpawnEnemy();
-            yield return new WaitForSeconds(0.5f);
+            SpawnEnemy(wave.enemy);
+            yield return new WaitForSeconds(1f / wave.rate);
+        }
+
+        waveIndex++;
+
+        if (waveIndex >= waves.Length)
+        {
+            Debug.Log("LEVEL WON!");
+            this.enabled = false; // disable the whole script 
         }
     }
 
-    void SpawnEnemy()
+    void SpawnEnemy(GameObject enemy)
     {
-        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
         EnemiesAlive++;
     }
 }
