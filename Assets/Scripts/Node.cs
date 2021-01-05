@@ -69,6 +69,11 @@ public class Node : MonoBehaviour
             rend.material.color = notEnoughMoneyColor;
         }
 
+        DrawTurretRadius(buildManager.GetTurretToBuild());
+    }
+    void DrawTurretRadius(TurretBlueprint blueprint)
+    {
+        Debug.Log("Draw radius", blueprint.prefab);
     }
 
     void BuildTurret(TurretBlueprint blueprint)
