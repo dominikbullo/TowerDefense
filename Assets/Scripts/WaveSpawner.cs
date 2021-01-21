@@ -13,17 +13,30 @@ public class WaveSpawner : MonoBehaviour
 
     public Text waveCountdownText;
 
-    // TODO: change on real game
     public float timeBetweenWaves = 5f;
     private float countdown = 2f;
 
     private int waveIndex = 0;
+
+    void Start()
+    {
+        EnemiesAlive = 0;
+    }
     // Update is called once per frame
     void Update()
     {
         if (EnemiesAlive > 0)
         {
             return;
+        }
+
+        if (waveIndex >= waves.Length)
+        {
+            if (!GameManager.GameIsOver)
+            {
+                Debug.Log("LEVEL WON!");
+            }
+            this.enabled = false; // disable the whole script 
         }
 
         if (countdown <= 0f)
@@ -54,12 +67,6 @@ public class WaveSpawner : MonoBehaviour
         }
 
         waveIndex++;
-
-        if (waveIndex >= waves.Length)
-        {
-            Debug.Log("LEVEL WON!");
-            this.enabled = false; // disable the whole script 
-        }
     }
 
     void SpawnEnemy(GameObject enemy)
