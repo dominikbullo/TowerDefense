@@ -17,6 +17,6 @@ public class PlayerStats : MonoBehaviour
     {
         Money = startMoney;
         Lives = startLives;
-        Rounds = -1;
+        Rounds = 0;
     }
 }
