@@ -13,6 +13,8 @@ public class WaveSpawner : MonoBehaviour
 
     public Text waveCountdownText;
 
+    public GameManager gameManager;
+
     public float timeBetweenWaves = 5f;
     private float countdown = 2f;
 
@@ -34,7 +36,7 @@ public class WaveSpawner : MonoBehaviour
         {
             if (!GameManager.GameIsOver)
             {
-                Debug.Log("LEVEL WON!");
+                gameManager.WinLevel();
             }
             this.enabled = false; // disable the whole script 
         }

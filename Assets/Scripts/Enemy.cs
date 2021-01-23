@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
     [Header("Unity")]
     public Image healthBar;
 
+    private bool isDead = false;
+
     void Start()
     {
         speed = startSpeed;
@@ -30,7 +32,7 @@ public class Enemy : MonoBehaviour
 
         healthBar.fillAmount = health / startHealth;
 
-        if (health <= 0)
+        if (health <= 0 && !isDead)
         {
             Die();
         }
@@ -43,6 +45,11 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        // Destroying is slow, which causes bug with multiple deads of one object
+        // and taking more mone
+        //fixed by adding private bool isDead = false;
+
+        isDead = true;
         PlayerStats.Money += worth;
         WaveSpawner.EnemiesAlive--;
         Destroy(gameObject);

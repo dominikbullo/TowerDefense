@@ -3,10 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
-public class GameOver : MonoBehaviour
+public class CompleteLevel : MonoBehaviour
 {
     public string menuSceneName = "LevelSelect";
+
+    public string nextLevel = "Level2";
+
+
+    public void Continue()
+    {
+        SceneManager.LoadScene(nextLevel);
+    }
 
     public void Retry()
     {
