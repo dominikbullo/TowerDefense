@@ -6080,7 +6080,7 @@ MonoBehaviour:
   laserBeamer:
     prefab: {fileID: 4724569380542202138, guid: b4a27d14e79852847ae027b3624de1c8, type: 3}
     cost: 300
-    upgradedPrefab: {fileID: 0}
+    upgradedPrefab: {fileID: 4724569380542202138, guid: a2bf060acb35b6f479b509d8cc656a5a, type: 3}
     upgradeCost: 200
 --- !u!1 &679863462
 GameObject:

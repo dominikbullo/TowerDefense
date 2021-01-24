@@ -17,4 +17,9 @@ public class TurretBlueprint
     {
         return (int)(cost * 0.5);
     }
+
+    public Turret GetTurret()
+    {
+        return prefab.GetComponent<Turret>();
+    }
 }

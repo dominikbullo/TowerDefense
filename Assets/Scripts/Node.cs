@@ -21,6 +21,7 @@ public class Node : MonoBehaviour
     private Color startColor;
 
     BuildManager buildManager;
+    LineRenderer line;
 
     void Start()
     {
@@ -29,7 +30,6 @@ public class Node : MonoBehaviour
 
         buildManager = BuildManager.instance;
     }
-
     public Vector3 GetBuildPosition()
     {
         return transform.position + positionOffset;
@@ -58,7 +58,17 @@ public class Node : MonoBehaviour
             return;
 
         if (!buildManager.CanBuild)
+        {
             return;
+        }
+        if (turret == null)
+        {
+            DrawTurretRadius(buildManager.GetTurretToBuild());
+        }
+        else
+        {
+            DrawRadius(turret.GetComponent<Turret>().range);
+        }
 
         if (buildManager.HasMoney)
         {
@@ -68,12 +78,38 @@ public class Node : MonoBehaviour
         {
             rend.material.color = notEnoughMoneyColor;
         }
-
-        DrawTurretRadius(buildManager.GetTurretToBuild());
     }
-    void DrawTurretRadius(TurretBlueprint blueprint)
+    public void DrawTurretRadius(TurretBlueprint blueprint)
     {
-        // Debug.Log("Draw radius", blueprint.prefab);
+        Turret selectedTurret = blueprint.GetTurret();
+        float radius = selectedTurret.range;
+        DrawRadius(radius);
+    }
+    public void DrawRadius(float radius)
+    {
+        radius = radius / 4f; // 4 -> magic number -> try&error 
+
+        // RES: https://gamedev.stackexchange.com/questions/126427/draw-circle-around-gameobject-to-indicate-radius
+        int segments = 50;
+
+        line = gameObject.GetComponent<LineRenderer>();
+        line.SetVertexCount(segments + 1);
+        line.useWorldSpace = false;
+
+        float x;
+        float z;
+
+        float angle = 20f;
+
+        for (int i = 0; i < (segments + 1); i++)
+        {
+            x = Mathf.Sin(Mathf.Deg2Rad * angle) * radius;
+            z = Mathf.Cos(Mathf.Deg2Rad * angle) * radius;
+
+            line.SetPosition(i, new Vector3(x, 1, z));
+
+            angle += (360f / segments);
+        }
     }
 
     void BuildTurret(TurretBlueprint blueprint)
@@ -113,12 +149,11 @@ public class Node : MonoBehaviour
 
         isUpgraded = true;
 
-        Debug.Log("Turret upgraded!");
+        // Debug.Log("Turret upgraded!");
     }
     public void SellTurret()
     {
         PlayerStats.Money += turretBlueprint.GetSellAmount();
-
         Destroy(turret);
         turretBlueprint = null;
     }
@@ -126,5 +161,8 @@ public class Node : MonoBehaviour
     void OnMouseExit()
     {
         rend.material.color = startColor;
+        line = gameObject.GetComponent<LineRenderer>();
+        line.SetVertexCount(0);
     }
 }
+
